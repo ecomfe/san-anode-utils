@@ -7,6 +7,6 @@
  * @file 主模块
  */
 
-var compress = require('./src/compress');
+var pack = require('./src/pack');
 
-exports.compress = compress;
+exports.pack = pack;
