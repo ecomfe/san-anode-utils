@@ -1,0 +1,14 @@
+{
+  "name": "san-anode-utils",
+  "version": "3.9.0-beta.1",
+  "description": "Util Functions for San ANode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "san": "3.9.x"
+  },
+  "author": "",
+  "license": "MIT"
+}
