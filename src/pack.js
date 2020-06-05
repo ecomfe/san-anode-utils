@@ -59,6 +59,7 @@ function packTemplateNode(aNode) {
             case 'if':
                 result = result.concat(38, packExpr(directive.value));
                 if (directive.elses instanceof Array) {
+                    result.push(directive.elses.length || void(0));
                     for (var i = 0; i < directive.elses.length; i++) {
                         result = result.concat(packTemplateNode(directive.elses[i]));
                     }
@@ -165,7 +166,7 @@ function packExpr(expr) {
             break;
         
         case ExprType.BINARY:
-            result = [10, expr.operator, expr.segs.length || void(0)];
+            result = [10, expr.operator];
             for (var i = 0; i < expr.segs.length; i++) {
                 result = result.concat(packExpr(expr.segs[i]));
             }
