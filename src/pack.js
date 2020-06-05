@@ -78,11 +78,11 @@ function packTemplateNode(aNode) {
                 
             case 'for':
                 result = result.concat(
-                    37, 
-                    packExpr(directive.value),
+                    37,
                     directive.item,
                     directive.index || void(0),
-                    directive.trackByRaw || void(0)
+                    directive.trackByRaw || void(0), 
+                    packExpr(directive.value)
                 );
                 break;
                 
@@ -140,8 +140,8 @@ function packExpr(expr) {
 
         case ExprType.INTERP:
             result = [7].concat(
-                packExpr(expr.expr),
                 expr.original ? 1 : void(0),
+                packExpr(expr.expr),
                 expr.filters.length || void(0)
             );
             for (var i = 0; i < expr.filters.length; i++) {
