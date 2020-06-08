@@ -14,7 +14,25 @@ function packTemplateNode(aNode) {
         return [void(0)].concat(packExpr(aNode.textExpr));
     }
 
-    var result = [1, aNode.tagName, aNode.children.length || void(0)];
+    var len = aNode.children.length + aNode.props.length + aNode.events.length;
+    if (aNode.vars) {
+        len += aNode.vars.length;
+    }
+    for (var key in aNode.directives) {
+        switch (key) {
+            case 'if':
+            case 'else':
+            case 'elif':
+            case 'bind':
+            case 'html':
+            case 'for':
+            case 'ref':
+            case 'transition':
+                len++;
+        }
+    }
+
+    var result = [1, aNode.tagName, len || void(0)];
 
     // pack prop
     for (var i = 0; i < aNode.props.length; i++) {
@@ -29,7 +47,7 @@ function packTemplateNode(aNode) {
     // pack events
     for (var i = 0; i < aNode.events.length; i++) {
         var event = aNode.events[i];
-        result = result.concat(35, packExpr(event.expr));
+        result = result.concat(35, event.name, packExpr(event.expr));
 
         var modifierLen = 0;
         var modifierResult = [0];
