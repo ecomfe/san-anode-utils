@@ -7,6 +7,8 @@
  * @file 主模块
  */
 
-var pack = require('./src/pack');
+const pack = require('./src/pack');
+const san = require('san');
 
 exports.pack = pack;
+exports.unpack = san.unpackANode;
