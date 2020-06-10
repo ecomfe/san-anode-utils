@@ -42,14 +42,12 @@ function expectEqual(a, b) {
             case 'object':
                 for (var i in a) {
                     if (a.hasOwnProperty(i) && a[i] != null) {
-                        if (!b.hasOwnProperty(i))console.log(i, Object.keys(a))
                         expect(b.hasOwnProperty(i)).toBeTruthy();
                     }
                 }
             
                 for (var i in b) {
                     if (b.hasOwnProperty(i) && b[i] != null) {
-                        if (!a.hasOwnProperty(i))console.log(i, Object.keys(b))
                         expect(a.hasOwnProperty(i)).toBeTruthy();
                     }
                 }
