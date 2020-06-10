@@ -1,0 +1,1 @@
+<div id="test" s-if="[1,true,...c,2+1,d,...e]"></div>
