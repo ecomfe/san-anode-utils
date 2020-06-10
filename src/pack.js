@@ -205,11 +205,12 @@ function packExpr(expr) {
             result = [13, expr.items.length || void(0)];
             for (var i = 0; i < expr.items.length; i++) {
                 var item = expr.items[i];
-                result = result.concat(
-                    item.spread ? 15 : 14,
-                    packExpr(item.name),
-                    packExpr(item.expr)
-                );
+                if (item.spread) {
+                    result = result.concat(15, packExpr(item.expr));
+                }
+                else {
+                    result = result.concat(14, packExpr(item.name), packExpr(item.expr));
+                }
             }
             break;
 
