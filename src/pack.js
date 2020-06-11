@@ -71,15 +71,6 @@ function packTemplateNode(aNode) {
         switch (key) {
             case 'if':
                 result = result.concat(38, packExpr(directive.value));
-                if (directive.elses instanceof Array) {
-                    result.push(directive.elses.length || void(0));
-                    for (var i = 0; i < directive.elses.length; i++) {
-                        result = result.concat(packTemplateNode(directive.elses[i]));
-                    }
-                }
-                else {
-                    result.push(void(0));
-                }
                 break;
 
             case 'else':
@@ -129,6 +120,18 @@ function packTemplateNode(aNode) {
     // pack children
     for (var i = 0; i < aNode.children.length; i++) {
         result = result.concat(packTemplateNode(aNode.children[i]));
+    }
+
+    if (aNode.directives['if']) {
+        if (aNode.elses instanceof Array) {
+            result.push(aNode.elses.length || void(0));
+            for (var i = 0; i < aNode.elses.length; i++) {
+                result = result.concat(packTemplateNode(aNode.elses[i]));
+            }
+        }
+        else {
+            result.push(void(0));
+        }
     }
 
     return result;
