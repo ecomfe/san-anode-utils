@@ -10,7 +10,8 @@
     "san": "3.9.x"
   },
   "devDependencies": {
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "san-anode-cases": "^3.9.0"
   },
   "author": "",
   "license": "MIT"

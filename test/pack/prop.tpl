@@ -1,1 +1,0 @@
-<input type="checkbox" value="{=val=}" checked/>
