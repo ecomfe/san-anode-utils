@@ -230,7 +230,7 @@ let aNode = aNodeUtils.parseComponentTemplate(MyComponent);
 ```js
 const aNodeUtils = require('san-anode-utils');
 
-let aNode = aNodeUtils.parseTemplate('<p>Hello {{name}}</p>');
+let aNode = aNodeUtils.parseExpr('<p>Hello {{name}}</p>');
 /* aNode
 {
     "type": 8,
