@@ -349,3 +349,7 @@ let aNode = aNodeUtils.unpack([1,"p",1,,9,,2,3,"Hello ",7,,6,1,3,"name",]);
 }
 */
 ```
+
+## License
+
+san-anode-utils is [MIT licensed](./LICENSE).
