@@ -14,3 +14,4 @@ exports.pack = pack;
 exports.unpack = san.unpackANode;
 exports.parseTemplate = san.parseTemplate;
 exports.parseExpr = san.parseExpr;
+exports.ExprType = san.ExprType;
