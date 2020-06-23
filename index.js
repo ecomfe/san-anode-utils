@@ -13,5 +13,6 @@ const san = require('san');
 exports.pack = pack;
 exports.unpack = san.unpackANode;
 exports.parseTemplate = san.parseTemplate;
+exports.parseComponentTemplate = san.parseComponentTemplate;
 exports.parseExpr = san.parseExpr;
 exports.ExprType = san.ExprType;
