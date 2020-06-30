@@ -13,7 +13,7 @@ files.forEach(file => {
             const result = fs.readFileSync(`${packDir}/${file.name}.apack`, 'UTF-8'); 
 
             let aNode = utils.parseTemplate(tpl).children[0];
-            expect(utils.pack.stringify(utils.pack(aNode))).toBe(result);
+            expect(utils.pack.stringify(aNode)).toBe(result);
         });
     }
 });

@@ -237,13 +237,21 @@ module.exports = exports = function (aNode) {
 };
 
 exports.stringify = function (packed) {
-    return '['
-        + packed.map(function (item) {
-            if (item == null) {
-                return item;
-            }
+    if (typeof packed === 'object' && !(packed instanceof Array)) {
+        packed = packTemplateNode(packed);
+    }
 
-            return JSON.stringify(item);
-        }).join(',')
-        + ']';
+    if (packed instanceof Array) {
+        return '['
+            + packed.map(function (item) {
+                if (item == null) {
+                    return item;
+                }
+
+                return JSON.stringify(item);
+            }).join(',')
+            + ']';
+    }
+
+    return '';
 };
