@@ -20,6 +20,7 @@ function packTemplateNode(aNode) {
     }
     for (var key in aNode.directives) {
         switch (key) {
+            case 'is':
             case 'if':
             case 'else':
             case 'elif':
@@ -105,6 +106,10 @@ function packTemplateNode(aNode) {
 
             case 'transition':
                 result = result.concat(44, packExpr(directive.value));
+                break;
+
+            case 'is':
+                result = result.concat(45, packExpr(directive.value));
                 break;
         }
     }
