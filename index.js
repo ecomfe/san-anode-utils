@@ -8,10 +8,12 @@
  */
 
 const pack = require('./src/pack');
+const toTemplate = require('./src/to-template');
 const san = require('san');
 
 exports.pack = pack;
 exports.unpack = san.unpackANode;
+exports.toTemplate = toTemplate;
 exports.parseTemplate = san.parseTemplate;
 exports.parseComponentTemplate = san.parseComponentTemplate;
 exports.parseExpr = san.parseExpr;
