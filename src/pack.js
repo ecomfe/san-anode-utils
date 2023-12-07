@@ -18,6 +18,9 @@ function packTemplateNode(aNode) {
     if (aNode.vars) {
         len += aNode.vars.length;
     }
+    if (aNode.attrs) {
+        len += aNode.attrs.length;
+    }
     for (var key in aNode.directives) {
         switch (key) {
             case 'is':
@@ -114,6 +117,14 @@ function packTemplateNode(aNode) {
         }
     }
 
+    // pack attrs
+    if (aNode.attrs) {
+        for (var i = 0; i < aNode.attrs.length; i++) {
+            var attrItem = aNode.attrs[i];
+            result = result.concat(46, attrItem.name, packExpr(attrItem.expr));
+        }
+    }
+
     // pack vars
     if (aNode.vars) {
         for (var i = 0; i < aNode.vars.length; i++) {
@@ -121,6 +132,7 @@ function packTemplateNode(aNode) {
             result = result.concat(36, varItem.name, packExpr(varItem.expr));
         }
     }
+
 
     // pack children
     for (var i = 0; i < aNode.children.length; i++) {
